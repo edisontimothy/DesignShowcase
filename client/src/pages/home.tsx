@@ -28,7 +28,7 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className="container py-8">
+      <div className="content-container py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[1, 2, 3].map(i => (
             <div key={i} className="h-72 bg-muted animate-pulse rounded-lg" />
@@ -39,11 +39,11 @@ export default function Home() {
   }
 
   return (
-    <div className="container py-16 space-y-16">
+    <div className="content-container py-16 space-y-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center max-w-3xl mx-auto px-4"
+        className="text-center max-w-3xl mx-auto"
       >
         <h1 className="text-5xl font-bold mb-6 gradient-heading leading-tight">
           UX Design Portfolio
@@ -77,7 +77,7 @@ export default function Home() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
         {filteredProjects.map(project => (
           <ProjectCard key={project.id} project={project} />

@@ -12,6 +12,12 @@
   }
 }
 
+@layer components {
+  .content-container {
+    @apply container mx-auto px-[5%] md:px-[10%] lg:px-[20%];
+  }
+}
+
 @layer utilities {
   .gradient-heading {
     @apply bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent;

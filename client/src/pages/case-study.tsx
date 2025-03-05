@@ -14,7 +14,7 @@ export default function CaseStudy() {
 
   if (isLoading) {
     return (
-      <div className="container py-8">
+      <div className="content-container py-8">
         <div className="h-96 bg-muted animate-pulse rounded-lg" />
       </div>
     );
@@ -25,7 +25,7 @@ export default function CaseStudy() {
   }
 
   return (
-    <div className="container py-8">
+    <div className="content-container py-8">
       <Link href="/">
         <Button variant="ghost" className="mb-8">
           <ChevronLeft className="mr-2 h-4 w-4" />
@@ -44,7 +44,7 @@ export default function CaseStudy() {
             alt={project.title}
             className="w-full h-[400px] object-cover rounded-lg mb-8"
           />
-          
+
           <h2>Overview</h2>
           <p>{project.content.overview}</p>
 
