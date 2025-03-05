@@ -39,22 +39,25 @@ export default function Home() {
   }
 
   return (
-    <div className="container py-8">
+    <div className="container py-16 space-y-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-12"
+        className="text-center max-w-3xl mx-auto px-4"
       >
-        <h1 className="text-4xl font-bold mb-4">UX Design Portfolio</h1>
-        <p className="text-xl text-muted-foreground">
-          Crafting meaningful digital experiences through user-centered design
+        <h1 className="text-5xl font-bold mb-6 gradient-heading leading-tight">
+          UX Design Portfolio
+        </h1>
+        <p className="text-xl text-muted-foreground leading-relaxed">
+          Crafting meaningful digital experiences through user-centered design and creative problem-solving
         </p>
       </motion.div>
 
-      <div className="flex gap-2 mb-8 flex-wrap">
+      <div className="flex gap-2 mb-8 flex-wrap justify-center">
         <Button
           variant={filter === null ? "default" : "outline"}
           onClick={() => setFilter(null)}
+          className="shadow-sm"
         >
           All
         </Button>
@@ -63,6 +66,7 @@ export default function Home() {
             key={tag}
             variant={filter === tag ? "default" : "outline"}
             onClick={() => setFilter(tag)}
+            className="shadow-sm"
           >
             {tag}
           </Button>
@@ -73,7 +77,7 @@ export default function Home() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
       >
         {filteredProjects.map(project => (
           <ProjectCard key={project.id} project={project} />

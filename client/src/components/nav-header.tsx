@@ -7,8 +7,10 @@ export default function NavHeader() {
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
     <Link href={href}>
       <a className={cn(
-        "text-sm font-medium transition-colors hover:text-primary",
-        location === href ? "text-primary" : "text-muted-foreground"
+        "text-sm font-medium transition-colors hover:text-primary relative",
+        location === href 
+          ? "text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:rounded-full" 
+          : "text-muted-foreground"
       )}>
         {children}
       </a>
@@ -17,12 +19,12 @@ export default function NavHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold">UX Portfolio</span>
+      <div className="container flex h-16 items-center">
+        <div className="flex flex-1 items-center justify-between">
+          <Link href="/" className="flex items-center space-x-2">
+            <span className="text-lg font-bold gradient-heading">UX Portfolio</span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="flex items-center space-x-8">
             <NavLink href="/">Work</NavLink>
             <NavLink href="/about">About</NavLink>
             <NavLink href="/contact">Contact</NavLink>
