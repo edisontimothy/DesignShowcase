@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import ProjectCard from "@/components/project-card";
 import { Button } from "@/components/ui/button";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import type { Project } from "@shared/schema";
 
 const container = {
@@ -17,6 +23,7 @@ const container = {
 
 export default function Home() {
   const [filter, setFilter] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const { data: projects = [], isLoading } = useQuery<Project[]>({
     queryKey: ["/api/projects"]
   });
@@ -53,25 +60,39 @@ export default function Home() {
         </p>
       </motion.div>
 
-      <div className="flex gap-2 mb-8 flex-wrap justify-center">
-        <Button
-          variant={filter === null ? "default" : "outline"}
-          onClick={() => setFilter(null)}
-          className="shadow-sm"
-        >
-          All
-        </Button>
-        {allTags.map(tag => (
-          <Button
-            key={tag}
-            variant={filter === tag ? "default" : "outline"}
-            onClick={() => setFilter(tag)}
-            className="shadow-sm"
-          >
-            {tag}
+      <Collapsible
+        open={isOpen}
+        onOpenChange={setIsOpen}
+        className="flex flex-col items-center space-y-4"
+      >
+        <CollapsibleTrigger asChild>
+          <Button variant="outline" className="flex items-center gap-2">
+            Filter Projects
+            <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
           </Button>
-        ))}
-      </div>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="w-full">
+          <div className="flex gap-2 flex-wrap justify-center">
+            <Button
+              variant={filter === null ? "default" : "outline"}
+              onClick={() => setFilter(null)}
+              className="shadow-sm"
+            >
+              All
+            </Button>
+            {allTags.map(tag => (
+              <Button
+                key={tag}
+                variant={filter === tag ? "default" : "outline"}
+                onClick={() => setFilter(tag)}
+                className="shadow-sm"
+              >
+                {tag}
+              </Button>
+            ))}
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
 
       <motion.div
         variants={container}
