@@ -74,14 +74,29 @@ export default function About() {
         animate={{ opacity: 1, y: 0 }}
         className="max-w-4xl mx-auto space-y-12"
       >
-        <section>
-          <h1 className="text-4xl font-bold mb-6">About Me</h1>
-          <div className="prose mb-12">
-            <p className="text-lg text-muted-foreground">
-              I'm a UX designer passionate about creating intuitive and impactful digital
-              experiences. With over 5 years of experience in the field, I've worked
-              with startups and enterprise clients to solve complex design challenges.
-            </p>
+        <section className="flex flex-col md:flex-row gap-8 items-start">
+          <div className="flex-1">
+            <h1 className="text-4xl font-bold mb-6">About Me</h1>
+            <div className="prose">
+              <p className="text-lg text-muted-foreground">
+                I'm a UX designer passionate about creating intuitive and impactful digital
+                experiences. With over 5 years of experience in the field, I've worked
+                with startups and enterprise clients to solve complex design challenges.
+              </p>
+            </div>
+          </div>
+          <div className="md:w-1/3 flex justify-center md:justify-end">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <img
+                src="/attached_assets/IMG_0121.JPG"
+                alt="Profile"
+                className="w-48 h-48 object-cover rounded-full border-4 border-background shadow-xl"
+              />
+            </motion.div>
           </div>
         </section>
 
