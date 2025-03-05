@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, GraduationCap, Briefcase } from "lucide-react";
+// Import the image from the public assets folder
+import profileImage from "/assets/profile-image.jpg";
 
 const skills = [
   {
@@ -92,7 +94,7 @@ export default function About() {
               transition={{ delay: 0.2 }}
             >
               <img
-                src="attached_assets/IMG_0121.JPG"
+                src={profileImage}
                 alt="Profile"
                 className="w-48 h-48 object-cover rounded-full border-4 border-background shadow-xl"
               />
