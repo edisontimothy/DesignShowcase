@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import type { Project } from "@/types/project";
+import type { Project } from "@/shared/schema";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect } from 'react';
 
