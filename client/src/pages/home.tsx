@@ -24,7 +24,13 @@ const container = {
 export default function Home() {
   const [filter, setFilter] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const { data: projects = [], isLoading } = useQuery<Project[]>({
+  const { data: projects = [], isLoading } = useQuery<Project[]>({    
+    queryKey: ["/api/projects"],
+    queryFn: async () => {
+      const response = await fetch('/api/projects');
+      if (!response.ok) throw new Error('Network response was not ok');
+      return response.json();
+    }
     queryKey: ["/api/projects"]
   });
 
