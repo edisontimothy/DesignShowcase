@@ -17,7 +17,6 @@ export default function CaseStudy() {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
     }
-    queryKey: [`/api/projects/${params?.id}`]
   });
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });

@@ -31,7 +31,6 @@ export default function Home() {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
     }
-    queryKey: ["/api/projects"]
   });
 
   const allTags = Array.from(new Set(projects.flatMap(p => p.tags)));
