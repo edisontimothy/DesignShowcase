@@ -20,7 +20,7 @@ export default function CaseStudy() {
     if (emblaApi) {
       const interval = setInterval(() => {
         emblaApi.scrollNext();
-      }, 5000); // Auto-scroll every 5 seconds
+      }, 10000); // Auto-scroll every 10 seconds
 
       return () => clearInterval(interval);
     }
@@ -64,13 +64,20 @@ export default function CaseStudy() {
         <div className="relative mb-8">
           <div className="overflow-hidden rounded-lg" ref={emblaRef}>
             <div className="flex">
-              {project.content.images.slice(0, 3).map((image, index) => (
+              {project.content.images.slice(0, 3).map((content, index) => (
                 <div key={index} className="relative flex-[0_0_100%] min-w-0">
-                  <img
-                    src={image}
-                    alt={`${project.title} slide ${index + 1}`}
-                    className="w-full h-[400px] object-cover"
-                  />
+                  {content.startsWith('<iframe') ? (
+                    <div 
+                      className="w-full h-[400px] flex items-center justify-center"
+                      dangerouslySetInnerHTML={{ __html: content }}
+                    />
+                  ) : (
+                    <img
+                      src={content}
+                      alt={`${project.title} slide ${index + 1}`}
+                      className="w-full h-[400px] object-cover"
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -95,18 +102,29 @@ export default function CaseStudy() {
           </Button>
         </div>
 
-        <div className="prose max-w-none">
-          <h2>Overview</h2>
-          <p>{project.content.overview}</p>
+        <div className="prose prose-lg max-w-none space-y-16 dark:prose-invert">
+          <div className="space-y-8">
+            <h2 className="text-3xl font-semibold">Summary</h2>
+            <div 
+              className="text-lg text-muted-foreground whitespace-pre-wrap leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: project.content.summary }}
+            />
+          </div>
 
-          <h2>Challenge</h2>
-          <p>{project.content.challenge}</p>
+          <div className="space-y-8">
+            <h2 className="text-3xl font-semibold">Problem</h2>
+            <p className="text-lg text-muted-foreground whitespace-pre-wrap leading-relaxed">{project.content.problem}</p>
+          </div>
 
-          <h2>Solution</h2>
-          <p>{project.content.solution}</p>
+          <div className="space-y-8">
+            <h2 className="text-3xl font-semibold">Design Process</h2>
+            <p className="text-lg text-muted-foreground whitespace-pre-wrap leading-relaxed">{project.content.designProcess}</p>
+          </div>
 
-          <h2>Results</h2>
-          <p>{project.content.results}</p>
+          <div className="space-y-8">
+            <h2 className="text-3xl font-semibold">Solution</h2>
+            <p className="text-lg text-muted-foreground whitespace-pre-wrap leading-relaxed">{project.content.solution}</p>
+          </div>
         </div>
       </motion.div>
     </div>

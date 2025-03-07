@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,12 +16,12 @@
 
 @layer components {
   .content-container {
-    @apply container mx-auto px-[5%] md:px-[10%] lg:px-[20%];
+    @apply container mx-auto px-[5%] md:px-[10%] lg:px-[10%];
   }
 }
 
 @layer utilities {
   .gradient-heading {
-    @apply bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent font-['Bree_Serif'];
   }
 }

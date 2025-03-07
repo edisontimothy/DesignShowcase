@@ -18,7 +18,7 @@ const skills = [
   },
   {
     category: "Tools",
-    items: ["Figma", "Adobe XD", "Sketch", "InVision"]
+    items: ["Figma", "Adobe XD", "Miro", "Blender"]
   },
   {
     category: "Methods",
@@ -28,43 +28,49 @@ const skills = [
 
 const education = [
   {
-    degree: "Master of Human-Computer Interaction",
-    school: "Carnegie Mellon University",
-    year: "2020-2022",
-    description: "Focused on UX Research and Interactive Design"
+    degree: "Bachelor of Design Computing (Interaction Design)",
+    school: "The University of Sydney, Sydney, Australia",
+    year: "2024",
+    description: "WAM Distinction, 3 Year Scholarship - Sydney International Student Award"
   },
   {
-    degree: "Bachelor of Design",
-    school: "Rhode Island School of Design",
-    year: "2016-2020",
-    description: "Major in Digital + Media Design"
+    degree: "Diploma of Commerce",
+    school: "Curtin University, Singapore",
+    year: "2020",
+    description: "WAM Distinction"
   }
 ];
 
 const workHistory = [
   {
-    position: "Senior UX Designer",
-    company: "Tech Innovation Labs",
-    period: "2022-Present",
-    description: "Leading design initiatives for enterprise software solutions"
+    position: "Sales and Service Consultant",
+    company: "CBA Insurance",
+    period: "8/2024 - 1/2025",
+    description: [
+      "Closed 35% of warm leads",
+      "Managed customer inquiries efficiently",
+      "Maintained regulatory compliance using Genesys, CommSee, and Insure 90"
+    ]
   },
   {
-    position: "UX Designer",
-    company: "Digital Products Inc",
-    period: "2020-2022",
-    description: "Designed user interfaces for mobile applications"
+    position: "Sales Representative (Team Leader)",
+    company: "Uniqlo Australia",
+    period: "4/2022 - 8/2024",
+    description: [
+      "Led team to exceed $80-120k AUD daily sales targets",
+      "Maintained 4.3/5 customer satisfaction rating",
+      "Managed inventory with 97% efficiency"
+    ]
   },
   {
-    position: "UI/UX Design Intern",
-    company: "Creative Agency Co",
-    period: "2019-2020",
-    description: "Assisted in creating wireframes and prototypes"
-  },
-  {
-    position: "Junior Designer",
-    company: "Web Solutions Studio",
-    period: "2018-2019",
-    description: "Collaborated on website redesign projects"
+    position: "UI/UX Designer",
+    company: "Engine Room Global",
+    period: "1/2024 - 4/2024",
+    description: [
+      "Developed UI/UX mockups using Figma and Illustrator",
+      "Created web design proposals",
+      "Conducted user research for web and mobile applications"
+    ]
   }
 ];
 
@@ -81,9 +87,7 @@ export default function About() {
             <h1 className="text-4xl font-bold mb-6">About Me</h1>
             <div className="prose">
               <p className="text-lg text-muted-foreground">
-                I'm a UX designer passionate about creating intuitive and impactful digital
-                experiences. With over 5 years of experience in the field, I've worked
-                with startups and enterprise clients to solve complex design challenges.
+              Hey! I'm Tim, a UX Designer and graduate of The University of Sydney with experience in Sales and Service. My passion lies in creating accessible, universal designs and crafting intuitive, impactful experiences. With four years of professional experience across Insurance, Sales, and Design, I am keen to bring my unique experiences to drive meaningful interactions, whether through intuitive design, customer engagement, or strategic business development.
               </p>
             </div>
           </div>
@@ -145,7 +149,13 @@ export default function About() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{work.description}</p>
+                  <ul className="list-disc list-inside space-y-2">
+                    {work.description.map((item, i) => (
+                      <li key={i} className="text-muted-foreground">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             ))}

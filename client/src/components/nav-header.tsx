@@ -22,15 +22,20 @@ export default function NavHeader() {
       <div className="content-container flex h-16 items-center">
         <div className="flex flex-1 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-lg font-bold gradient-heading">UX Portfolio</span>
+            <span className="text-lg font-bold gradient-heading">Timothy Edison</span>
           </Link>
           <nav className="flex items-center space-x-8">
             <NavLink href="/">Work</NavLink>
-            <NavLink href="/about">About</NavLink>
-            <NavLink href="/contact">Contact</NavLink>
+            <NavLink href="/about">About Me</NavLink>
+            {/*<NavLink href="/contact">Contact</NavLink>*/}
           </nav>
         </div>
       </div>
     </header>
   );
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> d1de77b (Initial commit: Add Design Showcase portfolio project)

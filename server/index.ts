@@ -56,13 +56,13 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client
-  const port = 5000;
+  // Use the PORT from environment variable or fallback to 3000
+  const port = process.env.PORT || 3000;
+  
+  // Change from 0.0.0.0 to localhost to avoid the ENOTSUP error
   server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
+    port: Number(port),
+    host: "localhost", // Changed from 0.0.0.0 to localhost
   }, () => {
     log(`serving on port ${port}`);
   });

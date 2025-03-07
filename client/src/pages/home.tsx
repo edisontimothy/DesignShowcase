@@ -28,7 +28,7 @@ export default function Home() {
     queryKey: ["/api/projects"]
   });
 
-  const allTags = [...new Set(projects.flatMap(p => p.tags))];
+  const allTags = Array.from(new Set(projects.flatMap(p => p.tags)));
   const filteredProjects = filter
     ? projects.filter(p => p.tags.includes(filter))
     : projects;
@@ -53,10 +53,10 @@ export default function Home() {
         className="text-center max-w-3xl mx-auto"
       >
         <h1 className="text-5xl font-bold mb-6 gradient-heading leading-tight">
-          UX Design Portfolio
+          Tim's Portfolio
         </h1>
         <p className="text-xl text-muted-foreground leading-relaxed">
-          Crafting meaningful digital experiences through user-centered design and creative problem-solving
+          Crafting meaningful digital experiences through user centred design and creative problem-solving
         </p>
       </motion.div>
 
