@@ -7,7 +7,6 @@ import Footer from "@/components/footer";
 import Home from "@/pages/home";
 import CaseStudy from "@/pages/case-study";
 import About from "@/pages/about";
-import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 import PageTransition from "@/components/page-transition";
 
@@ -20,7 +19,6 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/case-study/:id" component={CaseStudy} />
           <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

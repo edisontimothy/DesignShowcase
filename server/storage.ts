@@ -1,10 +1,9 @@
-import { projects, contactMessages, type Project, type InsertProject, type ContactMessage, type InsertContactMessage } from "@shared/schema";
+import { projects, type Project, type InsertProject } from "@shared/schema";
 
 export interface IStorage {
   getAllProjects(): Promise<Project[]>;
   getProject(id: number): Promise<Project | undefined>;
   addProject(project: Project): Promise<Project>;
-  createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
@@ -12,15 +11,13 @@ export interface IStorage {
 
 export class MemStorage implements IStorage {
   private projects: Map<number, Project>;
-  private messages: Map<number, ContactMessage>;
-  private messageId: number;
+
   private users: Map<number, User>;
   currentId: number;
 
   constructor() {
     this.projects = new Map();
-    this.messages = new Map();
-    this.messageId = 1;
+
     this.users = new Map();
     this.currentId = 1;
   }
@@ -38,12 +35,7 @@ export class MemStorage implements IStorage {
     return project;
   }
 
-  async createContactMessage(message: InsertContactMessage): Promise<ContactMessage> {
-    const id = this.messageId++;
-    const newMessage: ContactMessage = { ...message, id };
-    this.messages.set(id, newMessage);
-    return newMessage;
-  }
+
     async getUser(id: number): Promise<User | undefined> {
     return this.users.get(id);
   }

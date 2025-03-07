@@ -2,7 +2,6 @@ import type { Express } from "express";
 import { createServer } from "http";
 import { storage } from "./storage";
 import { PROJECTS } from "@shared/schema";
-import { insertContactSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express) {
   // Initialize with static project data
@@ -23,15 +22,7 @@ export async function registerRoutes(app: Express) {
     res.json(project);
   });
 
-  app.post("/api/contact", async (req, res) => {
-    const result = insertContactSchema.safeParse(req.body);
-    if (!result.success) {
-      return res.status(400).json({ message: "Invalid request body" });
-    }
-    
-    const message = await storage.createContactMessage(result.data);
-    res.json(message);
-  });
+
 
   return createServer(app);
 }
