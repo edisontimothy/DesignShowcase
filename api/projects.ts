@@ -21,7 +21,7 @@ const PROJECTS = [
   },
   {
     id: 2,
-    title: "Sensible: A Digital Cutting Board for Collaborative Cooking",
+    title: "Sensible: A Digital Cutting Board",
     description: "A digital smart cutting board designed to facilitate collaborative, safe, and guided cooking experiences",
     coverImage: "/attached_assets/Sensible/Sensible_Main.png",
     tags: ["UX Design", "Product Design", "Smart Home", "Education"],
@@ -44,7 +44,7 @@ const PROJECTS = [
   },
   {
     id: 3,
-    title: "Studbud",
+    title: "Studbud: A Comprehensive Study Web App",
     description: "A web-based application designed to enhance individual study sessions by integrating planning and content management tools",
     coverImage: "/attached_assets/Studbud/Studbud_Main.png",
     tags: ["UX Design", "Web Development", "Education"],

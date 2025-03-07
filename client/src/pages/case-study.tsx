@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import type { Project } from "@shared/schema";
+import type { Project } from "@/types/project";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect } from 'react';
 
@@ -13,7 +13,8 @@ export default function CaseStudy() {
   const { data: project, isLoading } = useQuery<Project>({    
     queryKey: [`/api/projects/${params?.id}`],
     queryFn: async () => {
-      const response = await fetch(`/api/projects/${params?.id}`);
+      const baseUrl = process.env.NODE_ENV === 'production' ? 'https://timothyedison.vercel.app/' : '';
+      const response = await fetch(`${baseUrl}/api/projects/${params?.id}`);
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
     }
