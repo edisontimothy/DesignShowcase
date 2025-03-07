@@ -33,9 +33,5 @@ export default function NavHeader() {
       </div>
     </header>
   );
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> d1de77b (Initial commit: Add Design Showcase portfolio project)
