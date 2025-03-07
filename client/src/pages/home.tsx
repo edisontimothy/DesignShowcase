@@ -9,7 +9,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import type { Project } from "@shared/schema";
+import type { Project } from "@/types/project";
 
 const container = {
   hidden: { opacity: 0 },
