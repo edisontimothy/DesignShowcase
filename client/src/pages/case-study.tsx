@@ -13,7 +13,7 @@ export default function CaseStudy() {
   const { data: project, isLoading } = useQuery<Project>({    
     queryKey: [`/api/projects/${params?.id}`],
     queryFn: async () => {
-      const baseUrl = process.env.NODE_ENV === 'production' ? 'https://timothyedison.vercel.app/' : '';
+      const baseUrl = process.env.NODE_ENV === 'production' ? 'https://timothyedison.vercel.app' : '';
       const response = await fetch(`${baseUrl}/api/projects/${params?.id}`);
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
