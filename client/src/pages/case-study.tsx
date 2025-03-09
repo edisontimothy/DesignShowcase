@@ -23,9 +23,11 @@ export default function CaseStudy() {
         throw new Error('No project ID found in URL parameters');
       }
       
-      // Use relative URL which works in both development and production
-      const url = `/api/projects/${params.id}`;
-      console.log("Fetching from URL:", url);
+      // Use different API endpoints based on environment
+      // For Vercel, we need to use /api?id=X format instead of /api/projects/X
+      const isVercel = window.location.hostname.includes('vercel.app');
+      const url = isVercel ? `/api?id=${params.id}` : `/api/projects/${params.id}`;
+      console.log("Fetching from URL:", url, "Is Vercel:", isVercel);
       
       const response = await fetch(url);
       if (!response.ok) {
