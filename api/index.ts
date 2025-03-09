@@ -5,11 +5,45 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === "GET") {
     const { id } = req.query;
     
+    // Log the request details for debugging
+    console.log("API Request:", { 
+      query: req.query,
+      id: id,
+      idType: typeof id,
+      url: req.url
+    });
+    
     if (id) {
-      const project = PROJECTS.find(p => p.id === parseInt(id as string));
+      // Handle both string and array cases (Vercel might pass array)
+      const idValue = Array.isArray(id) ? id[0] : id;
+      
+      // Try to parse as integer, but handle errors
+      let projectId: number;
+      try {
+        projectId = parseInt(idValue as string, 10);
+        console.log("Parsed project ID:", projectId);
+        
+        if (isNaN(projectId)) {
+          console.error("Failed to parse ID as integer:", idValue);
+          return res.status(400).json({ message: "Invalid project ID format" });
+        }
+      } catch (error) {
+        console.error("Error parsing project ID:", error);
+        return res.status(400).json({ message: "Invalid project ID" });
+      }
+      
+      // Find the project
+      const project = PROJECTS.find(p => p.id === projectId);
+      
+      // Log available projects for debugging
+      console.log("Available project IDs:", PROJECTS.map(p => p.id));
+      
       if (!project) {
+        console.error(`Project with ID ${projectId} not found`);
         return res.status(404).json({ message: "Project not found" });
       }
+      
+      console.log("Returning project:", project.id, project.title);
       return res.json(project);
     }
     
