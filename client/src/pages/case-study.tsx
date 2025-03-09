@@ -90,22 +90,30 @@ export default function CaseStudy() {
         <div className="relative mb-8">
           <div className="overflow-hidden rounded-lg" ref={emblaRef}>
             <div className="flex">
-              {project.content.images.slice(0, 3).map((content, index) => (
-                <div key={index} className="relative flex-[0_0_100%] min-w-0">
-                  {content.startsWith('<iframe') ? (
-                    <div 
-                      className="w-full h-[400px] flex items-center justify-center"
-                      dangerouslySetInnerHTML={{ __html: content }}
-                    />
-                  ) : (
-                    <img
-                      src={content}
-                      alt={`${project.title} slide ${index + 1}`}
-                      className="w-full h-[400px] object-cover"
-                    />
-                  )}
+              {project.content.images && project.content.images.length > 0 ? (
+                project.content.images.map((content, index) => (
+                  <div key={index} className="relative flex-[0_0_100%] min-w-0">
+                    {content && content.startsWith('<iframe') ? (
+                      <div 
+                        className="w-full h-[400px] flex items-center justify-center"
+                        dangerouslySetInnerHTML={{ __html: content }}
+                      />
+                    ) : (
+                      <img
+                        src={content}
+                        alt={`${project.title} slide ${index + 1}`}
+                        className="w-full h-[400px] object-cover"
+                      />
+                    )}
+                  </div>
+                ))
+              ) : (
+                <div className="relative flex-[0_0_100%] min-w-0">
+                  <div className="w-full h-[400px] flex items-center justify-center bg-muted">
+                    <p>No images available</p>
+                  </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
 
