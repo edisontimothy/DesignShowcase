@@ -15,7 +15,7 @@ export default function CaseStudy() {
   console.log("Route params:", params);
   
   const { data: project, isLoading, error } = useQuery<Project>({    
-    queryKey: [`/api/projects/${params?.id}`],
+    queryKey: [`project-${params?.id}`], // Use a simpler queryKey that doesn't conflict with the actual API endpoint
     queryFn: async () => {
       // Check if params.id exists
       if (!params?.id) {
@@ -23,24 +23,52 @@ export default function CaseStudy() {
         throw new Error('No project ID found in URL parameters');
       }
       
+      // Make sure the ID is a valid number
+      const projectId = parseInt(params.id, 10);
+      if (isNaN(projectId)) {
+        console.error("Invalid project ID (not a number):", params.id);
+        throw new Error('Invalid project ID format');
+      }
+      
       // Use different API endpoints based on environment
       // For Vercel, we need to use /api?id=X format instead of /api/projects/X
       const isVercel = window.location.hostname.includes('vercel.app');
-      const url = isVercel ? `/api?id=${params.id}` : `/api/projects/${params.id}`;
+      const url = isVercel ? `/api?id=${projectId}` : `/api/projects/${projectId}`;
       console.log("Fetching from URL:", url, "Is Vercel:", isVercel);
       
-      const response = await fetch(url);
-      if (!response.ok) {
-        console.error(`API error: ${response.status} ${response.statusText}`);
-        throw new Error(`Network response was not ok: ${response.status}`);
+      try {
+        const response = await fetch(url);
+        console.log("Response status:", response.status);
+        
+        if (!response.ok) {
+          console.error(`API error: ${response.status} ${response.statusText}`);
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log("API response data:", data);
+        
+        if (!data || typeof data !== 'object') {
+          console.error("Invalid response data format:", data);
+          throw new Error('Invalid response data format');
+        }
+        
+        return data;
+      } catch (error) {
+        console.error("Error fetching project:", error);
+        throw error;
       }
-      
-      const data = await response.json();
-      console.log("API response data:", data);
-      return data;
     },
-    enabled: !!params?.id // Only run the query if we have an ID
+    enabled: !!params?.id, // Only run the query if we have an ID
+    retry: 2 // Add retry logic to handle temporary issues
   });
+  
+  // Log any errors for debugging
+  useEffect(() => {
+    if (error) {
+      console.error("Query error:", error);
+    }
+  }, [error]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
