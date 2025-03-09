@@ -10,14 +10,34 @@ import { useCallback, useEffect } from 'react';
 
 export default function CaseStudy() {
   const [, params] = useRoute("/case-study/:id");
-  const { data: project, isLoading } = useQuery<Project>({    
+  
+  // Add console logging to debug the params
+  console.log("Route params:", params);
+  
+  const { data: project, isLoading, error } = useQuery<Project>({    
     queryKey: [`/api/projects/${params?.id}`],
     queryFn: async () => {
+      // Check if params.id exists
+      if (!params?.id) {
+        console.error("No project ID found in URL parameters");
+        throw new Error('No project ID found in URL parameters');
+      }
+      
       // Use relative URL which works in both development and production
-      const response = await fetch(`/api/projects/${params?.id}`);
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.json();
-    }
+      const url = `/api/projects/${params.id}`;
+      console.log("Fetching from URL:", url);
+      
+      const response = await fetch(url);
+      if (!response.ok) {
+        console.error(`API error: ${response.status} ${response.statusText}`);
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log("API response data:", data);
+      return data;
+    },
+    enabled: !!params?.id // Only run the query if we have an ID
   });
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
