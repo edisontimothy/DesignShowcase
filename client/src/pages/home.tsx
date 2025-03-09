@@ -10,6 +10,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import type { Project } from "@/types/project";
+import { getAllProjects } from "@/data/projects";
 
 const container = {
   hidden: { opacity: 0 },
@@ -24,12 +25,34 @@ const container = {
 export default function Home() {
   const [filter, setFilter] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const { data: projects = [], isLoading } = useQuery<Project[]>({    
-    queryKey: ["/api/projects"],
+  const { data: projects = [], isLoading } = useQuery<Project[]>({
+    queryKey: ["/api"],
     queryFn: async () => {
-      const response = await fetch('/api/projects');
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.json();
+      try {
+        // First try the API endpoint
+        const isVercel = window.location.hostname.includes('vercel.app');
+        const url = isVercel ? '/api' : '/api/projects';
+        console.log("Attempting to fetch projects from URL:", url);
+        
+        const response = await fetch(url);
+        console.log("Response status:", response.status);
+        
+        if (!response.ok) {
+          console.error(`API error: ${response.status} ${response.statusText}`);
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log("API response data length:", data.length);
+        
+        return data;
+      } catch (error) {
+        console.error("Error fetching projects from API:", error);
+        
+        // Fallback to static data if API fails
+        console.log("Falling back to static project data");
+        return getAllProjects();
+      }
     }
   });
 
@@ -61,7 +84,7 @@ export default function Home() {
           Tim's Portfolio
         </h1>
         <p className="text-xl text-muted-foreground leading-relaxed">
-        Hey, welcome to my site! Have a look at some of my latest work in UX, web design, and data analytics. I’m all about making things look good while actually working well; Functional aesthetics, universal design, and creative problem solving. Hope you like it
+        Hey, welcome to my site! Have a look at some of my latest work in UX, web design, and data analytics. I'm all about making things look good while actually working well; Functional aesthetics, universal design, and creative problem solving. Hope you like it
         </p>
       </motion.div>
 

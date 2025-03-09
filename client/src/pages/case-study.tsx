@@ -6,16 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import type { Project } from "@/types/project";
 import useEmblaCarousel from 'embla-carousel-react';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { getProjectById } from "@/data/projects";
 
 export default function CaseStudy() {
   const [, params] = useRoute("/case-study/:id");
+  const [fallbackMode, setFallbackMode] = useState(false);
   
   // Add console logging to debug the params
   console.log("Route params:", params);
   
-  const { data: project, isLoading, error } = useQuery<Project>({    
-    queryKey: [`project-${params?.id}`], // Use a simpler queryKey that doesn't conflict with the actual API endpoint
+  const { data: project, isLoading, error } = useQuery<Project>({
+    queryKey: [`project-${params?.id}`],
     queryFn: async () => {
       // Check if params.id exists
       if (!params?.id) {
@@ -30,13 +32,12 @@ export default function CaseStudy() {
         throw new Error('Invalid project ID format');
       }
       
-      // Use different API endpoints based on environment
-      // For Vercel, we need to use /api?id=X format instead of /api/projects/X
-      const isVercel = window.location.hostname.includes('vercel.app');
-      const url = isVercel ? `/api?id=${projectId}` : `/api/projects/${projectId}`;
-      console.log("Fetching from URL:", url, "Is Vercel:", isVercel);
-      
       try {
+        // First try the API endpoint
+        const isVercel = window.location.hostname.includes('vercel.app');
+        const url = isVercel ? `/api?id=${projectId}` : `/api/projects/${projectId}`;
+        console.log("Attempting to fetch from URL:", url);
+        
         const response = await fetch(url);
         console.log("Response status:", response.status);
         
@@ -55,12 +56,26 @@ export default function CaseStudy() {
         
         return data;
       } catch (error) {
-        console.error("Error fetching project:", error);
-        throw error;
+        console.error("Error fetching project from API:", error);
+        
+        // Fallback to static data if API fails
+        console.log("Falling back to static project data");
+        setFallbackMode(true);
+        
+        // Find the project in the static data using the helper function
+        const staticProject = getProjectById(projectId);
+        
+        if (!staticProject) {
+          console.error(`Project with ID ${projectId} not found in static data`);
+          throw new Error('Project not found');
+        }
+        
+        console.log("Found project in static data:", staticProject.title);
+        return staticProject;
       }
     },
-    enabled: !!params?.id, // Only run the query if we have an ID
-    retry: 2 // Add retry logic to handle temporary issues
+    enabled: !!params?.id,
+    retry: 1 // Reduce retry attempts since we have a fallback
   });
   
   // Log any errors for debugging
@@ -68,7 +83,11 @@ export default function CaseStudy() {
     if (error) {
       console.error("Query error:", error);
     }
-  }, [error]);
+    
+    if (fallbackMode) {
+      console.log("Using fallback mode with static project data");
+    }
+  }, [error, fallbackMode]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
