@@ -89,7 +89,10 @@ export default function CaseStudy() {
     }
   }, [error, fallbackMode]);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    slidesToScroll: 1 // Ensures we scroll one slide at a time
+  });
 
   useEffect(() => {
     if (emblaApi) {
@@ -138,10 +141,10 @@ export default function CaseStudy() {
 
         <div className="relative mb-8">
           <div className="overflow-hidden rounded-lg" ref={emblaRef}>
-            <div className="flex">
+            <div className="flex" style={{ scrollSnapType: 'x mandatory' }}>
               {project.content.images && project.content.images.length > 0 ? (
                 project.content.images.map((content, index) => (
-                  <div key={index} className="relative flex-[0_0_100%] min-w-0">
+                  <div key={index} className="relative flex-none w-full p-1 snap-center">
                     {content && content.startsWith('<iframe') ? (
                       <div 
                         className="w-full h-[400px] flex items-center justify-center"
