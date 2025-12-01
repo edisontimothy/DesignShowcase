@@ -143,7 +143,7 @@ export default function CaseStudy() {
           <div className="overflow-hidden rounded-lg" ref={emblaRef}>
             <div className="flex" style={{ scrollSnapType: 'x mandatory' }}>
               {project.content.images && project.content.images.length > 0 ? (
-                project.content.images.map((content, index) => (
+                project.content.images.map((content: string, index: number) => (
                   <div key={index} className="relative flex-none w-full p-1 snap-center">
                     {content && content.startsWith('<iframe') ? (
                       <div

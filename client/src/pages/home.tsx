@@ -110,7 +110,7 @@ export default function Home() {
             className="rounded-full px-8"
             onClick={() => window.open('https://drive.google.com/file/d/1MSGcsvjPFY-kvg_mC7i7ZnV2eoeYu1LP/view?usp=share_link', '_blank')}
           >
-            Portfolio
+            Resume
           </Button>
         </div>
       </motion.div>
