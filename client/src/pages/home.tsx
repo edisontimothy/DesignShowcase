@@ -93,7 +93,7 @@ export default function Home() {
           Tim's Portfolio
         </h1>
         <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-          Hey, welcome to my site! Have a look at some of my latest work in UX, web design, and data analytics. I'm all about making things look good while actually working well; Functional aesthetics, universal design, and creative problem solving.
+          Hey, welcome to my site! Have a look at some of my latest work in UI/UX, Web Design, and Product Design. I'm all about making things look good while actually working well; Functional aesthetics, universal design, and creative problem solving.
         </p>
 
         <div className="flex gap-4 justify-center mb-12">
