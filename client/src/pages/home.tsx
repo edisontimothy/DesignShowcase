@@ -33,22 +33,22 @@ export default function Home() {
         const isVercel = window.location.hostname.includes('vercel.app');
         const url = isVercel ? '/api' : '/api/projects';
         console.log("Attempting to fetch projects from URL:", url);
-        
+
         const response = await fetch(url);
         console.log("Response status:", response.status);
-        
+
         if (!response.ok) {
           console.error(`API error: ${response.status} ${response.statusText}`);
           throw new Error(`Network response was not ok: ${response.status}`);
         }
-        
+
         const data = await response.json();
         console.log("API response data length:", data.length);
-        
+
         return data;
       } catch (error) {
         console.error("Error fetching projects from API:", error);
-        
+
         // Fallback to static data if API fails
         console.log("Falling back to static project data");
         return getAllProjects();
@@ -82,8 +82,8 @@ export default function Home() {
       >
         <div className="relative w-48 h-48 mx-auto mb-8">
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-primary/10 rounded-full blur-2xl transform scale-110" />
-          <img 
-            src="/attached_assets/profile.png" 
+          <img
+            src="/attached_assets/profile.png"
             alt="Timothy Edison"
             className="relative w-full h-full object-cover drop-shadow-xl hover:scale-105 transition-transform duration-300"
           />
@@ -93,18 +93,18 @@ export default function Home() {
           Tim's Portfolio
         </h1>
         <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-        Hey, welcome to my site! Have a look at some of my latest work in UX, web design, and data analytics. I'm all about making things look good while actually working well; Functional aesthetics, universal design, and creative problem solving. Hope you like it
+          Hey, welcome to my site! Have a look at some of my latest work in UX, web design, and data analytics. I'm all about making things look good while actually working well; Functional aesthetics, universal design, and creative problem solving.
         </p>
 
         <div className="flex gap-4 justify-center mb-12">
-          <Button 
+          <Button
             size="lg"
             className="rounded-full px-8"
             onClick={() => window.open('https://linktr.ee/tedison', '_blank')}
           >
             Get in touch
           </Button>
-          <Button 
+          <Button
             variant="outline"
             size="lg"
             className="rounded-full px-8"
