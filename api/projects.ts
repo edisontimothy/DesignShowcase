@@ -54,12 +54,12 @@ const PROJECTS = [
       designProcess: "Visual Strategy & Typography\nTo counter the industrial feel of mass-market treats, I utilised a hand-drawn, organic typographic style for the JUNO logo and variant names. This imperfection in the type reflects the natural and unprocessed nature of the freeze-dried ingredients. The rounded, soft typography builds immediate trust and approachability.\nThe Colour System\nA distinct pastel-adjacent colour palette was developed to differentiate SKUs while maintaining family unity:\n- Teal: Diced Chicken\n- Salmon/Coral: Atlantic Salmon\n- White/Clean: Atlantic Krill\n- Cream/Yellow: Egg Yolks\n- Mint Green: Duck Liver\nThis solid background colour allows for strong shelf blocking when products are displayed together, creating a billboard effect in retail environments.\nIllustration & Mascots\nTo solve the Cat vs. Dog product confusion, I designed a central mascot lockup featuring both a Husky and a Cat sharing the treats. Their interaction—cheerfully toasting with the freeze-dried cubes—serves as a primary visual cue that the product is universally loved by both species. This eliminates the need for text-heavy explanations like Suitable for mixed-pet households.",
       solution: "The final solution is a user-centric packaging architecture that prioritises information hierarchy:\nThe Front Panel (The Hook)\n- Instant Recognition: The variant name (e.g., DICED CHICKEN) takes up the centre 30% of the visual real estate, ensuring the customer knows exactly what the protein is.\n- Trust Badges: Key selling points (Preservative Free, 100% Real Ingredients) are presented in capsule buttons, making them easy to scan quickly.\n- Transparency Window: (Conceptually implied or rendered) The design leaves space or utilises bright contrast to suggest lightness, mirroring the freeze-dried nature of the product.\nThe Back Panel (The Education)\n- Zip-Lock Graphic: A visual cue at the top reinforces the functional value of the packaging (resealable/freshness).\n- Clear Data Visualisation: Feeding instructions are broken down by animal size using silhouettes (Small, Medium, Large) rather than dense text tables. This respects the user's time and simplifies the dosage decision.\n- Ingredient Honesty: The Ingredients & Analysis section is kept bold and legible, leaning into the brand's confidence that they have nothing to hide.",
       images: [
-        "/attached_assets/Juno/1.png",
-        "/attached_assets/Juno/2.png",
-        "/attached_assets/Juno/3.png",
-        "/attached_assets/Juno/4.png",
-        "/attached_assets/Juno/5.png",
-        "/attached_assets/Juno/6.png"
+        "/attached_assets/JUNO/1.png",
+        "/attached_assets/JUNO/2.png",
+        "/attached_assets/JUNO/3.png",
+        "/attached_assets/JUNO/4.png",
+        "/attached_assets/JUNO/5.png",
+        "/attached_assets/JUNO/6.png"
       ]
     }
   },
