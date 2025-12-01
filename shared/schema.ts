@@ -70,22 +70,22 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 3,
-    title: "Studbud",
-    description: "A web-based application designed to enhance individual study sessions by integrating planning and content management tools",
-    coverImage: "/attached_assets/Studbud/Studbud_Main.png",
-    tags: ["UX Design", "Web Development", "Education"],
+    title: "JUNO: Freeze Dried Pet Snack Packaging Design",
+    description: "JUNO is a Premium Freeze-Dried Pet Treats concept,",
+    coverImage: "/attached_assets/JUNO/Juno_Main.png",
+    tags: ["Web Development", "Business", "Retail"],
     content: {
-      summary: "<a href=\"https://studbud-theta.vercel.app\">Open Studbud</a>\n\nStudbud is a web-based application designed to enhance individual study sessions by integrating planning and content management tools. Through preliminary research, a market gap was identified for a platform that focuses on managing individual study sessions. Studbud addresses this by combining planning and content functionality to equip students with the tools needed for productive study sessions.",
-      problem: "Through preliminary research we have identified a gap in the market for a platform which focusses on managing individual study sessions. This web-based application should combine planning and content functionality, to equip students with the tools they need for a productive study session.",
-      designProcess: "Studbud is designed with the help of a focus group study consisting of 5 undergraduate university students and three researchers. During the ideation process, participants were asked what helps them study better, and we did some A/B testing to find out the users priorities. From there, we noted that it should have a task, time, and content management systems. Studbud was initially designed to have the three systems, and upon further user testing it was further refined to include new features such as a music player, and a dictionary search. Studbud maintains a non intrusive and minimalist design that helps the users focus on their goals. it was built using HTML/CSS and JS, with the use of react and vite libraries.",
-      solution: "Studbud is your all-in-one study companion designed to enhance your learning experience. Studbud's comprehensive suite of tools includes:\nA Kanban board for organizing and tracking your tasks\nPomodoro and stopwatch timers to manage your study sessions\nBuilt-in study music player that stays with you across tabs\nReading list manager to organize your study materials\nQuick dictionary lookup for expanding your vocabulary",
+      summary: "<a href=\"https://www.canva.com/design/DAG6QfVBlvM/gLzCmiuZokxFAFnAittLrw/view?utm_content=DAG6QfVBlvM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd087929259\">Open Design Files</a>\n\nJuno is a premium pet snack brand specialising in single-ingredient, freeze-dried treats for both cats and dogs. The project required a packaging system that balanced the clinical credibility of high-nutrition, clean label food with the warmth and playfulness of a pet parent brand. The resulting design is a cohesive, colour-coded pouch system that communicates transparency, quality, and cross-species suitability (cats & dogs) at a glance.",
+      problem: "The pet treat aisle is often polarised between two extremes: clinical, vet-focused packaging that feels sterile, or cheap, mass-market packaging that feels messy and untrustworthy.\nJuno faced a specific challenge:\n- Transparency: The product is freeze-dried and single-ingredient (e.g., just Chicken or just Salmon). The design needed to strip away the noise and focus on ingredient purity without looking boring.\n- Cross-Category Confusion: Most treats are marketed explicitly for either dogs or cats. Juno's freeze-dried raw ingredients are suitable for both. The packaging needed to signal this dual-utility instantly to avoid alienating half the customer base.\n- Variant Scalability: With multiple SKUs (Chicken, Salmon, Krill, Egg Yolks, Duck Liver), the system needed a rigid framework that allowed for easy expansion while maintaining brand recognition.",
+      designProcess: "Visual Strategy & Typography\nTo counter the industrial feel of mass-market treats, I utilised a hand-drawn, organic typographic style for the JUNO logo and variant names. This imperfection in the type reflects the natural and unprocessed nature of the freeze-dried ingredients. The rounded, soft typography builds immediate trust and approachability.\nThe Colour System\nA distinct pastel-adjacent colour palette was developed to differentiate SKUs while maintaining family unity:\n- Teal: Diced Chicken\n- Salmon/Coral: Atlantic Salmon\n- White/Clean: Atlantic Krill\n- Cream/Yellow: Egg Yolks\n- Mint Green: Duck Liver\nThis solid background colour allows for strong shelf blocking when products are displayed together, creating a billboard effect in retail environments.\nIllustration & Mascots\nTo solve the Cat vs. Dog product confusion, I designed a central mascot lockup featuring both a Husky and a Cat sharing the treats. Their interaction—cheerfully toasting with the freeze-dried cubes—serves as a primary visual cue that the product is universally loved by both species. This eliminates the need for text-heavy explanations like Suitable for mixed-pet households.",
+      solution: "The final solution is a user-centric packaging architecture that prioritises information hierarchy:\nThe Front Panel (The Hook)\n- Instant Recognition: The variant name (e.g., DICED CHICKEN) takes up the centre 30% of the visual real estate, ensuring the customer knows exactly what the protein is.\n- Trust Badges: Key selling points (Preservative Free, 100% Real Ingredients) are presented in capsule buttons, making them easy to scan quickly.\n- Transparency Window: (Conceptually implied or rendered) The design leaves space or utilises bright contrast to suggest lightness, mirroring the freeze-dried nature of the product.\nThe Back Panel (The Education)\n- Zip-Lock Graphic: A visual cue at the top reinforces the functional value of the packaging (resealable/freshness).\n- Clear Data Visualisation: Feeding instructions are broken down by animal size using silhouettes (Small, Medium, Large) rather than dense text tables. This respects the user's time and simplifies the dosage decision.\n- Ingredient Honesty: The Ingredients & Analysis section is kept bold and legible, leaning into the brand's confidence that they have nothing to hide.",
       images: [
-        "/attached_assets/Studbud/1.png",
-        "/attached_assets/Studbud/2.png",
-        "/attached_assets/Studbud/3.png",
-        "/attached_assets/Studbud/4.png",
-        "/attached_assets/Studbud/5.png",
-        "/attached_assets/Studbud/6.png"
+        "/attached_assets/Juno/1.png",
+        "/attached_assets/Juno/2.png",
+        "/attached_assets/Juno/3.png",
+        "/attached_assets/Juno/4.png",
+        "/attached_assets/Juno/5.png",
+        "/attached_assets/Juno/6.png"
       ]
     }
   },
@@ -126,6 +126,47 @@ export const PROJECTS: Project[] = [
         "/attached_assets/HausStudio/3.png",
         "/attached_assets/HausStudio/4.png",
         "/attached_assets/HausStudio/5.png"
+      ]
+    }
+  },
+  {
+    id: 6,
+    title: "Santa Petshop Retail Store Website Concept",
+    description: "HausStudio is a bespoke booking management web application designed for a photography studio in Jakarta.",
+    coverImage: "/attached_assets/SantaPetshop/SantaPetshop_Main.png",
+    tags: ["Web Development", "Business", "Retail"],
+    content: {
+      summary: "<a href=\"https://santapetshop.vercel.app\">Open Web app</a>\n\nSanta Petshop is a retail website concept for a local pet store in Surabaya, designed to unify product browsing, grooming services, a loyalty programme, and marketplace links into one cohesive online experience.",
+      problem: "Most Indonesian pet shops rely on Tokopedia/Shopee and walk-ins, leaving them with weak branding, no loyalty structure, and poor communication of their services. Customers often compare prices elsewhere, grooming booking is inconvenient, and stores lack a modern digital presence.",
+      designProcess: "Research: Looked at how Indonesian pet owners shop—mobile-first, marketplace-heavy, service driven.\nStructure: Organised the site into practical touchpoints: Products → Marketplaces, Grooming → WhatsApp booking, Membership → Tiered benefits, Blog → SEO and trust, Location → Maps.\nVisual Approach: Kept the design clean, friendly, and easy to scan, with simple CTAs and clear information hierarchy.\nMobile-first: Ensured all key actions—shop, book, contact—work smoothly on phones.",
+      solution: "The final concept delivers a modern yet approachable online presence:\n- A clear homepage with direct CTAs.\n- Product listings linked to Shopee and Tokopedia.\n- A 3-tier membership system based on annual spending.\n- Grooming packages and subscription options.\n- Blog and About pages to build credibility.\n- A straightforward contact and maps section for quick access.",
+      images: [
+        "/attached_assets/SantaPetshop/1.jpeg",
+        "/attached_assets/SantaPetshop/2.jpeg",
+        "/attached_assets/SantaPetshop/3.jpeg",
+        "/attached_assets/SantaPetshop/4.jpeg",
+        "/attached_assets/SantaPetshop/5.jpeg"
+      ]
+    }
+  },
+  {
+    id: 7,
+    title: "Studbud",
+    description: "A web-based application designed to enhance individual study sessions by integrating planning and content management tools",
+    coverImage: "/attached_assets/Studbud/Studbud_Main.png",
+    tags: ["UX Design", "Web Development", "Education"],
+    content: {
+      summary: "<a href=\"https://studbud-theta.vercel.app\">Open Studbud</a>\n\nStudbud is a web-based application designed to enhance individual study sessions by integrating planning and content management tools. Through preliminary research, a market gap was identified for a platform that focuses on managing individual study sessions. Studbud addresses this by combining planning and content functionality to equip students with the tools needed for productive study sessions.",
+      problem: "Through preliminary research we have identified a gap in the market for a platform which focusses on managing individual study sessions. This web-based application should combine planning and content functionality, to equip students with the tools they need for a productive study session.",
+      designProcess: "Studbud is designed with the help of a focus group study consisting of 5 undergraduate university students and three researchers. During the ideation process, participants were asked what helps them study better, and we did some A/B testing to find out the users priorities. From there, we noted that it should have a task, time, and content management systems. Studbud was initially designed to have the three systems, and upon further user testing it was further refined to include new features such as a music player, and a dictionary search. Studbud maintains a non intrusive and minimalist design that helps the users focus on their goals. it was built using HTML/CSS and JS, with the use of react and vite libraries.",
+      solution: "Studbud is your all-in-one study companion designed to enhance your learning experience. Studbud's comprehensive suite of tools includes:\nA Kanban board for organizing and tracking your tasks\nPomodoro and stopwatch timers to manage your study sessions\nBuilt-in study music player that stays with you across tabs\nReading list manager to organize your study materials\nQuick dictionary lookup for expanding your vocabulary",
+      images: [
+        "/attached_assets/Studbud/1.png",
+        "/attached_assets/Studbud/2.png",
+        "/attached_assets/Studbud/3.png",
+        "/attached_assets/Studbud/4.png",
+        "/attached_assets/Studbud/5.png",
+        "/attached_assets/Studbud/6.png"
       ]
     }
   }
