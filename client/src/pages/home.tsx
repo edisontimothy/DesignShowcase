@@ -80,12 +80,39 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         className="text-center max-w-3xl mx-auto"
       >
+        <div className="relative w-48 h-48 mx-auto mb-8">
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-primary/10 rounded-full blur-2xl transform scale-110" />
+          <img 
+            src="/attached_assets/profile.png" 
+            alt="Timothy Edison"
+            className="relative w-full h-full object-cover drop-shadow-xl hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+
         <h1 className="text-5xl font-bold mb-6 gradient-heading leading-tight">
           Tim's Portfolio
         </h1>
-        <p className="text-xl text-muted-foreground leading-relaxed">
+        <p className="text-xl text-muted-foreground leading-relaxed mb-8">
         Hey, welcome to my site! Have a look at some of my latest work in UX, web design, and data analytics. I'm all about making things look good while actually working well; Functional aesthetics, universal design, and creative problem solving. Hope you like it
         </p>
+
+        <div className="flex gap-4 justify-center mb-12">
+          <Button 
+            size="lg"
+            className="rounded-full px-8"
+            onClick={() => window.open('https://linktr.ee/tedison', '_blank')}
+          >
+            Get in touch
+          </Button>
+          <Button 
+            variant="outline"
+            size="lg"
+            className="rounded-full px-8"
+            onClick={() => window.open('https://drive.google.com/file/d/1MSGcsvjPFY-kvg_mC7i7ZnV2eoeYu1LP/view?usp=share_link', '_blank')}
+          >
+            Portfolio
+          </Button>
+        </div>
       </motion.div>
 
       <Collapsible

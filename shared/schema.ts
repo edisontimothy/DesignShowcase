@@ -88,5 +88,45 @@ export const PROJECTS: Project[] = [
         "/attached_assets/Studbud/6.png"
       ]
     }
+  },
+  {
+    id: 4,
+    title: "Irba Steak Loyalty Web App",
+    description: "A web-based application designed to digitize the customer reward experience. It replaces physical stamp cards with a centralized digital system, allowing the business to track engagement, manage rewards, and run promotions while giving customers a seamless way to collect points via QR technology.",
+    coverImage: "/attached_assets/IrbaSteak/IrbaSteak_Main.png",
+    tags: ["UX Design", "Web Development", "Business"],
+    content: {
+      summary: "<a href=\"https://irbasteak.netlify.app\">Open Web app</a>\n\nIrbaSteak Loyalty is a custom web-based application that digitizes the customer reward experience. It replaces physical stamp cards with a centralized digital system, allowing the business to track engagement, manage rewards, and run promotions while giving customers a seamless way to collect points via QR technology.",
+      problem: "Cost: Physical cards are costly to print, manage, and are potential fraud points\nLost Data: Physical cards provided no insight into customer behavior or redemption rates.\nMissed Marketing: There was no direct channel to notify loyal customers about new menu items or active promos.",
+      designProcess: "The design prioritised operational speed for cashiers and accessibility for customers. We focused on reducing the time-to-transaction by automating identification. The interface was built to be high-contrast and scannable, ensuring staff can view key metrics—like pending redemptions or daily transaction counts—at a glance without digging through menus.",
+      solution: "The Product: A responsive web application divided into two portals: a Management Dashboard for staff and a Mobile Web App for customers.\nKey Features:\nQR-Based Identification: The system generates a unique QR code based on the Customer ID. Cashiers scan this to instantly locate a profile, credit stamps, or validate a reward redemption, eliminating manual data entry errors.\nAdmin Command Center: A comprehensive dashboard that allows management to:\n- Monitor real-time metrics (Total Transactions, Pending Redemptions).\n- Configure loyalty modes (currently set to Stamps).\n- View detailed Activity Logs for security and auditing.\n- Manage Customer Data\n- Configure Loyalty Rewards\nIntegrated Promotion Hub: A dedicated section where admins upload promo banners that appear directly on the customer's homepage, ensuring high visibility for new offers.",
+      images: [
+        "/attached_assets/IrbaSteak/1.png",
+        "/attached_assets/IrbaSteak/2.png",
+        "/attached_assets/IrbaSteak/3.png",
+        "/attached_assets/IrbaSteak/4.png",
+        "/attached_assets/IrbaSteak/5.png"
+      ]
+    }
+  },
+  {
+    id: 5,
+    title: "Haus Studio: A Studio Booking App",
+    description: "HausStudio is a bespoke booking management web application designed for a photography studio in Jakarta.",
+    coverImage: "/attached_assets/HausStudio/HausStudio_Main.png",
+    tags: ["PostgreSQL", "Supabase", "Web Development", "Business"],
+    content: {
+      summary: "<a href=\"https://hausstudio.netlify.app\">Open Web app</a>\n\nHausStudio is a bespoke booking management web application designed for a photography studio in Jakarta. Built with a modern frontend and a Supabase backend, the application streamlines the reservation process by digitising availability checks and scheduling while preserving the personalised, conversation-based transaction model dominant in Indonesia. It serves as a high-fidelity pre-processing layer that hands off finalised booking details directly to the admin via WhatsApp.",
+      problem: "- Operational Bottlenecks: Managing studio slots purely through chat leads to slow response times, double-booking errors, and administrative fatigue.\n- The Payment Dilemma: While full automation (credit card gateways) is efficient, it often creates friction in the local market where manual bank transfers (BCA/Mandiri) and direct communication are preferred.\n- Customer Friction: Clients want to see availability instantly without waiting for an admin to check a calendar manually.",
+      designProcess: "- Market-Centric Approach: The core design philosophy was meet the user where they are. Since WhatsApp is the operating system of business in Indonesia, I designed a flow that integrates it rather than replacing it.\n- User Flow Mapping: I mapped the booking journey to mimic a conversation: Which room? When? Who are you?This linear wizard reduces cognitive load.\n- Database Architecture: I chose Supabase (PostgreSQL) to handle the complex logic of time-slot reservations. This ensures that once a user selects a time, it is cross-referenced against existing records in real-time to prevent conflicts.\n- Mobile-First UI: Recognising that most WhatsApp users are on mobile, the interface was built with large touch targets, clear typography, and a minimalist black-and-white aesthetic that matches the studio's brand.",
+      solution: "I developed a hybrid booking engine that combines the speed of automation with the flexibility of manual service:\n- Real-Time Availability Engine: A dynamic calendar that pulls data from Supabase to show only available slots, automatically blocking off booked times.\n- Smart WhatsApp Integration: Instead of a traditional checkout, the Book button triggers a deep link (wa.me). This constructs a pre-formatted message containing the Studio Name, Date, Time, and Calculated Price. The admin receives a ready - to - confirm message, requiring only a payment check to finalise.\n- Booking Management: Included a Find Booking feature allowing users to retrieve their reservation details using their phone number, reducing When is my slot? support queries.\n- Tech Stack: React (Netlify), Supabase (Backend/DB), WhatsApp API.",
+      images: [
+        "/attached_assets/HausStudio/1.png",
+        "/attached_assets/HausStudio/2.png",
+        "/attached_assets/HausStudio/3.png",
+        "/attached_assets/HausStudio/4.png",
+        "/attached_assets/HausStudio/5.png"
+      ]
+    }
   }
 ];

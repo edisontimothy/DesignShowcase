@@ -1,9 +1,14 @@
-import type { Express } from "express";
+import express, { type Express } from "express";
 import { createServer } from "http";
 import { storage } from "./storage";
 import { PROJECTS } from "@shared/schema";
+import path from "path";
 
 export async function registerRoutes(app: Express) {
+  // Serve attached assets
+  const assetsPath = path.join(process.cwd(), "attached_assets");
+  console.log("Serving attached assets from:", assetsPath);
+  app.use("/attached_assets", express.static(assetsPath));
   // Initialize with static project data
   PROJECTS.forEach(project => {
     storage.addProject(project);
