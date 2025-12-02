@@ -13,12 +13,12 @@ import profileImage from "/assets/profile-image.jpg";
 
 const skills = [
   {
-    category: "Design",
-    items: ["User Research", "Wireframing", "Prototyping", "UI Design"]
+    category: "General",
+    items: ["Sales", "Marketing", "User Research", "Wireframing", "Prototyping", "UI Design"]
   },
   {
     category: "Tools",
-    items: ["Figma", "Adobe XD", "Miro", "Blender"]
+    items: ["VSCode", "Figma", "Adobe XD", "Miro", "Blender", "Illustrator"]
   },
   {
     category: "Methods",
@@ -47,9 +47,19 @@ const workHistory = [
     company: "CBA Insurance",
     period: "8/2024 - 1/2025",
     description: [
-      "Closed 35% of warm leads",
-      "Managed customer inquiries efficiently",
-      "Maintained regulatory compliance using Genesys, CommSee, and Insure 90"
+      "Closed 35% of warm leads from 15–20 prospects daily, consistently exceeding sales targets for Home and Car Insurance.",
+      "Built strong client relationships by clarifying policies and simplifying complex regulatory terms, improving customer trust and retention.",
+      "Managed customer onboarding, policy adjustments, and compliance documentation using Genesys, CommSee, and Insure 90."
+    ]
+  },
+  {
+    position: "Digital Media Specialist ",
+    company: "CV Multi Artha Abadi",
+    period: "3/2025 - Now",
+    description: [
+      "Negotiated partnerships with Key Opinion Leaders (KOLs), increasing campaign reach by 238% and driving new customer acquisition.",
+      "Developed content calendars and marketing assets for social media campaigns",
+      "Created websites and product mock-ups for new business ventures."
     ]
   },
   {
@@ -57,9 +67,10 @@ const workHistory = [
     company: "Uniqlo Australia",
     period: "4/2022 - 8/2024",
     description: [
-      "Led team to exceed $80-120k AUD daily sales targets",
-      "Maintained 4.3/5 customer satisfaction rating",
-      "Managed inventory with 97% efficiency"
+      "Led a retail sales team to exceed daily sales targets of $80–120k AUD, consistently ranking in the top-performing groups.",
+      "Trained and coached team members on upselling, customer service, and closing techniques, contributing to a 4.3/5 satisfaction rating.",
+      "Oversaw stockroom and floor inventory, maintaining a 97% items in stock rate and supporting operational efficiency.",
+      "Handled escalations and customer complaints with effective negotiation and conflict resolution."
     ]
   },
   {
@@ -67,9 +78,9 @@ const workHistory = [
     company: "Engine Room Global",
     period: "1/2024 - 4/2024",
     description: [
-      "Developed UI/UX mockups using Figma and Illustrator",
-      "Created web design proposals",
-      "Conducted user research for web and mobile applications"
+      "Contributed to client facing presentations and proposals for digital projects, supporting new business pitches.",
+      "Conducted user research and design prototyping for a dashboard application, strengthening client engagement.",
+      "Produced design deliverables in Figma and Illustrator, enhancing team efficiency during project negotiations."
     ]
   }
 ];
@@ -87,7 +98,7 @@ export default function About() {
             <h1 className="text-4xl font-bold mb-6">About Me</h1>
             <div className="prose">
               <p className="text-lg text-muted-foreground">
-              Hey! I'm Tim, a UX Designer and graduate of The University of Sydney with experience in Sales and Service. My passion lies in creating accessible, universal designs and crafting intuitive, impactful experiences. With four years of professional experience across Insurance, Sales, and Design, I am keen to bring my unique experiences to drive meaningful interactions, whether through intuitive design, customer engagement, or strategic business development.
+                Hey! I'm Tim, a UX Designer and graduate of The University of Sydney with experience in Sales and Service. My passion lies in creating accessible, universal designs and crafting intuitive, impactful experiences. With four years of professional experience across Insurance, Sales, and Design, I am keen to bring my unique experiences to drive meaningful interactions, whether through intuitive design, customer engagement, or strategic business development.
               </p>
             </div>
           </div>
