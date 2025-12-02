@@ -57,7 +57,7 @@ const workHistory = [
     company: "CV Multi Artha Abadi",
     period: "3/2025 - Now",
     description: [
-      "Negotiated partnerships with Key Opinion Leaders (KOLs), increasing campaign reach by 238% and driving new customer acquisition.",
+      "Negotiated partnerships with Key Opinion Leaders (KOLs), increasing campaign reach and driving new customer acquisition.",
       "Developed content calendars and marketing assets for social media campaigns",
       "Created websites and product mock-ups for new business ventures."
     ]
